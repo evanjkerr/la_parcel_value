@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Lesson 09 Starter</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: whitesmoke;
+      font-family: Lato, sans-serif;
+      color: #0D0000;
+    }
+
+    header {
+      width: 80%;
+      margin: 10px auto 10px auto;
+    }
+
+    h1 {
+      display: inline-block;
+      margin-right: 20px;
+      color: #001323;
+    }
+
+    h2 {
+      display: inline-block;
+      color: #001323;
+    }
+
+    #map {
+      width: 80%;
+      height: 540px;
+      margin: 10px 10%;
+      background: whitesmoke;
+      border: 2px solid #dddedf;
+    }
+
+    footer {
+      padding: 6px 10%;
+      width: 80%;
+    }
+
+    p {
+      font-size: 1em;
+      color: #001323;
+    }
+
+    .legend {
+      padding: 6px 8px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    .legend h3 {
+      font-size: 1.1em;
+      font-weight: normal;
+      color: #001323;
+      margin: 0 0 10px 0;
+    }
+
+    .legend span {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin: 0 10px 4px 0;
+    }
+
+    .legend label {
+      font-size: 1.1em;
+    }
+
+    .legend label:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Map Title</h1>
+    <h2>Map Subtitle</h2>
+  </header>
+
+  <div id='map'></div>
+
+  <footer>
+    <p>Map authored by YOUR NAME</p>
+    <p>Additional information about the data and map goes here.</p>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <!-- add the simple stats library -->
+  <script src="https://unpkg.com/simple-statistics@7.6.0/dist/simple-statistics.min.js"></script>
+
+  <script>
+    // WRITE YOUR SWEET CODE HERE
+
+    // // example of using jQuery by writing jQuery
+    // jQuery("h1").html("Housing Ownership in Kentucky");
+
+    // // example of using jQuery by using shorthand
+    // $("h1").html("Housing Ownership in Kentucky");
+
+    var options = {
+      center: [37.8, -85.8],
+      zoom: 7.4,
+      zoomSnap: .1,
+      zoomControl: false
+    }
+    var map = L.map('map', options);
+
+    map.addControl( L.control.zoom({ position: 'topright' }));
+
+    $.getJSON("data/ky_counties_housing.json", function (data) {
+      // the data loaded from the file is accessible here within this function scope!
+      console.log(data);
+    });
+    // `data` parameter is not accessible here!
+
+
+  </script>
+
+</body>
+
+</html>
