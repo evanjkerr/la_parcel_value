@@ -127,7 +127,7 @@
 
     map.addControl( L.control.zoom({ position: 'topright' }));
 
-    $.getJSON("data/ky_counties_housing.json", function (data) {
+    $.getJSON("data/LA_parcel_data_2020.geojson", function (data) {
       // the data loaded from the file is accessible here within this function scope!
       console.log(data);
     });
