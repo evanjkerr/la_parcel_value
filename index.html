@@ -112,16 +112,16 @@
 
   <script>
     // // create L.map map variable with center coordinates and zoom location
-    // var map = L.map('map', {
-    //   center: [33.9991, -118.4117],
-    //   zoom: 10,
-    // });
+    var map = L.map('map', {
+      center: [33.9991, -118.4117],
+      zoom: 10,
+    });
 
-    // var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
-    //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    //   subdomains: 'abcd',
-    //   maxZoom: 19
-    // }).addTo(map);
+    var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
 
 
     // console.log(parcels);
@@ -141,6 +141,7 @@
     $.getJSON("data/la_parcels_2020.json", function (data) {
       // the data loaded from the file is accessible here within this function scope!
       console.log(data);
+      L.geoJson(data).addTo(map);
     });
     // `data` parameter is not accessible here!
   </script>
