@@ -138,7 +138,7 @@
     //   },
     // }).addTo(map);
 
-    $.getJSON("data/la_parcels_2020.json", function (data) {
+    $.getJSON("data/la_parcels_2020-2.json", function (data) {
       // the data loaded from the file is accessible here within this function scope!
       console.log(data);
       L.geoJson(data).addTo(map);
