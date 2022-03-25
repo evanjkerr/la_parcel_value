@@ -107,8 +107,9 @@
     crossorigin=""></script>
   <!-- add the simple stats library -->
   <script src="https://unpkg.com/simple-statistics@7.6.0/dist/simple-statistics.min.js"></script>
-  <script src="data/la_parcels_2020.js"></script>
+  <!-- <script src="data/la_parcels_2020.js"></script> -->
   <!-- couldn't get this method to work... kept getting a 404 not found error -->
+  <!-- because this data set is so large, using this method really slows everything down -->
 
   <script>
     // // create L.map map variable with center coordinates and zoom location
@@ -124,26 +125,26 @@
     }).addTo(map);
 
 
-    console.log(parcels);
+    // console.log(parcels);
 
-    var parcelsLayer = L.geoJson(parcels, {
-      pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, {
-          color: '#1f78b4',
-          fillColor: '#1f78b4',
-          fillOpacity: 1,
-          radius: 5,
-        });
-        console.log(feature);
-      },
-    }).addTo(map);
+    // var parcelsLayer = L.geoJson(parcels, {
+    //   pointToLayer: function (feature, latlng) {
+    //     return L.circleMarker(latlng, {
+    //       color: '#1f78b4',
+    //       fillColor: '#1f78b4',
+    //       fillOpacity: 1,
+    //       radius: 5,
+    //     });
+    //     console.log(feature);
+    //   },
+    // }).addTo(map);
 
-  //   $.getJSON("data/la_parcels_2020-2.json", function (data) {
-  //     // the data loaded from the file is accessible here within this function scope!
-  //     console.log(data);
-  //     L.geoJson(data).addTo(map);
-  //   });
-  //   // `data` parameter is not accessible here!
+    $.getJSON("data/la_parcels_2020-2.json", function (data) {
+      // the data loaded from the file is accessible here within this function scope!
+      console.log(data);
+      L.geoJson(data).addTo(map);
+    });
+    // `data` parameter is not accessible here!
   // </script>
 
 </body>
