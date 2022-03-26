@@ -152,11 +152,13 @@
 
       console.log(data["0"]);
 
-      let dataOne = data["0"]["Location 1"];
+      var dataOne = data["0"]["Location 1"];
       dataSlice = dataOne.slice(1, -1);
 
+      sliceCoords(dataOne);
+
       for (var key in data) {
-        console.log(dataone);
+        console.log(dataOne);
       }
       // console.log(dataOne);
       // console.log(dataSlice);
