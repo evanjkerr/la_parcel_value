@@ -107,7 +107,7 @@
     crossorigin=""></script>
   <!-- add the simple stats library -->
   <script src="https://unpkg.com/simple-statistics@7.6.0/dist/simple-statistics.min.js"></script>
-  <script src="data/la_parcels_2020.js"></script>
+  <!-- <script src="data/la_parcels_2020.js"></script> -->
   <!-- couldn't get this method to work... kept getting a 404 not found error -->
   <!-- because this data set is so large, using this method really slows everything down -->
 
@@ -125,7 +125,15 @@
     }).addTo(map);
 
 
-    console.log(parcels["0"]["Location 1"]);
+    // console.log(parcels["0"]["Location 1"]);
+
+    // logCoords(parcels);
+
+    // function logCoords(coords) {
+    //   for (var key in parcels) {
+    //     console.log(parcels["0"]["Location 1"])
+    //   }
+    // }
 
     // var parcelsLayer = L.geoJson(parcels, {
     //   pointToLayer: function (feature, latlng) {
@@ -139,20 +147,31 @@
     //   },
     // }).addTo(map);
 
-    // $.getJSON("data/la_parcels_2020-2.json", function (data) {
-    //       // the data loaded from the file is accessible here within this function scope!
-    //       var parcels = data;
-    //       var stringSlice = function (coordinates) {
-    //         for (var i = 0, i < parcels; i++) {
-    //           console.log(data[0]['Location 1']);
-    //         }
-    //         //   console.log(data[0]['Location 1']);
-    //         // }
-    //         console.log(data[0]);
-    //         // L.geoJson(data).addTo(map);
-    //       });
-        // `data` parameter is not accessible here!
-        // 
+    $.getJSON("data/la_parcels_2020-2.json", function (data) {
+      // the data loaded from the file is accessible here within this function scope!
+      
+      console.log(data["0"]);
+
+      let dataOne = data["0"]["Location 1"];
+          dataSlice = dataOne.slice(1, -1);
+
+      console.log(dataOne);
+      console.log(dataSlice);
+
+
+      
+      // logCoords(data);
+
+      // function logCoords(coords) {
+      //   for (var key in data) {
+      //     // console.log(data["0"]["Location 1"])
+
+      //   }
+      // }
+      // L.geoJson(data).addTo(map);
+    });
+    // `data` parameter is not accessible here!
+    // 
   </script>
 
 </body>
