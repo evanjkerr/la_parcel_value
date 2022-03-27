@@ -152,17 +152,19 @@
 
       console.log(data);
 
-      for (var i = 0, len = data.length; i < len; ++i) {
-        var dataOne = data[0]["Location 1"];
-        dataSlice = dataOne.slice(1, -1);
-        console.log(dataSlice);
-        // console.log(dataOne);
-        //   $("<div id=\"" + student.id + "\">" + student.full_name + " (" + student.user_id + " - " + student.stin +
-        //     ")</div>")...
-      }
+      var coordsSlice = function (data) {
+        for (var i = 0, len = data.length; i < len; ++i) {
+          var dataOne = data[0]["Location 1"];
+          dataSlice = dataOne.slice(1, -1);
+          console.log(dataSlice[0]);
+          // console.log(dataOne);
+          //   $("<div id=\"" + student.id + "\">" + student.full_name + " (" + student.user_id + " - " + student.stin +
+          //     ")</div>")...
+        }
+      };
 
-      var dataOne = data[0]["Location 1"];
-      dataSlice = dataOne.slice(1, -1);
+      // var dataOne = data[0]["Location 1"];
+      // dataSlice = dataOne.slice(1, -1);
 
       // var coordsArray = Object.values(dataOne);
 
@@ -178,7 +180,7 @@
       //   console.log(dataOne);
       // }
 
-      console.log(dataSlice);
+      // console.log(dataSlice);
 
       // logCoords(data);
 
@@ -188,7 +190,8 @@
 
       //   }
       // }
-      // L.geoJson(data).addTo(map);
+
+      L.geoJson(coordsSlice).addTo(map);
     });
     // `data` parameter is not accessible here!
     // 
