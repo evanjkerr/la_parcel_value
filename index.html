@@ -123,7 +123,7 @@
       maxZoom: 19
     }).addTo(map);
 
-    $.getJSON("data/la_parcels_top.geojson", function (data) {
+    const parcelsLayer = $.getJSON("data/la_parcels_top.geojson", function (data) {
       // the data loaded from the file is accessible here within this function scope!
 
       console.log(data);
@@ -142,7 +142,13 @@
           ).bindTooltip(data.properties.PropertyLocation).openTooltip();
         }
       }).addTo(map);
+
+      drawMap(topParcels);
     });
+
+    function drawMap(topParcels) {
+
+    }
     // `data` parameter is not accessible here!
     // 
   </script>
