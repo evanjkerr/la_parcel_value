@@ -108,7 +108,7 @@
   <!-- add the simple stats library -->
   <script src="https://unpkg.com/simple-statistics@7.6.0/dist/simple-statistics.min.js"></script>
   <!-- <script src="data/la_parcels_2020.js"></script> -->
-  <!-- couldn't get this method to work...--> 
+  <!-- couldn't get this method to work...-->
 
   <script>
     // // create L.map map variable with center coordinates and zoom location
@@ -128,16 +128,22 @@
 
       console.log(data);
 
-      L.geoJson(data, {
+      const topParcels = L.geoJson(data, {
         pointToLayer: function (data, latlng) {
           return L.circleMarker(latlng, {
-            radius: 5,
-            color: "blue",
-          }).bindTooltip(data.properties.PropertyLocation).openTooltip();
+              radius: 5,
+              color: "blue",
+            }
+            //   filter: function (feature) {
+            //     if (data.features["feature"].properties.PropertyLocation = "")
+            //       return :feature;
+            //   }
+            // }
+          ).bindTooltip(data.properties.PropertyLocation).openTooltip();
         }
       }).addTo(map);
     });
-      // `data` parameter is not accessible here!
+    // `data` parameter is not accessible here!
     // 
   </script>
 
