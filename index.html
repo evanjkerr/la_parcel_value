@@ -148,9 +148,32 @@
 
     function drawMap(topParcels) {
 
+      const breaks = getClassBreaks(topParcels)
+
     }
-    // `data` parameter is not accessible here!
-    // 
+
+    function getClassBreaks(topParcels) {
+      const values = [];
+
+      topParcels.eachLayer(function (data) {
+        var landValue = data.feature.properties.LandValue;
+        values.push(landValue);
+      });
+      // code here to determine range and establish classification breaks
+      console.log(values);
+
+      var intValues = values.map(Number);
+
+      console.log(intValues);
+
+      // var intValues = [];
+
+      // var length = values.length;
+
+      // for (var i = 0, i < length; i++) {
+      //   intValues.push(parseInt(values[i]));
+      // }
+    }
   </script>
 
 </body>
