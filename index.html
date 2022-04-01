@@ -158,16 +158,17 @@
 
         // console.log(landValue); // confirm landValue returns a value
 
-        data.setStyle({
-          fillColor: getColor(topParcels, breaks)
+        topParcels.setStyle({
+          fillColor: getColor(landValue, breaks)
         });
       });
+      // function to drawLegend at the end of drawMap function
+      drawLegend(breaks);
     }
 
+    const values = [];
 
     function getClassBreaks(topParcels) {
-      const values = [];
-
       topParcels.eachLayer(function (data) {
         var landValue = data.feature.properties.LandValue;
         values.push(landValue);
