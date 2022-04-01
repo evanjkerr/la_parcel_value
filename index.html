@@ -150,7 +150,18 @@
 
 
     function drawMap(topParcels) {
-      const breaks = getClassBreaks(topParcels)
+      const breaks = getClassBreaks(topParcels);
+
+      topParcels.eachLayer(function (data) {
+
+        var landValue = data.feature.properties.LandValue;
+
+        // console.log(landValue); // confirm landValue returns a value
+
+        data.setStyle({
+          fillColor: getColor(topParcels, breaks)
+        });
+      });
     }
 
 
@@ -161,6 +172,7 @@
         var landValue = data.feature.properties.LandValue;
         values.push(landValue);
       });
+
       // code here to determine range and establish classification breaks
       console.log(values);
 
@@ -170,7 +182,7 @@
 
 
       // determine similar clusters
-      var clusters = ss.ckmeans(values, 5);
+      var clusters = ss.ckmeans(intValues, 5);
 
       // create an array of the lowest value within each cluster
       var breaks = clusters.map(function (cluster) {
@@ -178,7 +190,24 @@
       });
 
       console.log(breaks); // verify your break values
+
+      return breaks;
     }
+
+    function getColor(d, breaks) {
+
+      if (d <= breaks[0][1]) {
+        return '#f1eef6';
+      } else if (d <= breaks[1][1]) {
+        return '#bdc9e1';
+      } else if (d <= breaks[2][1]) {
+        return '#74a9cf';
+      } else if (d <= breaks[3][1]) {
+        return '#2b8cbe'
+      } else if (d <= breaks[4][1]) {
+        return '#045a8d'
+      }
+    } // end getColor
 
     // // determine similar clusters
     // var clusters = ss.ckmeans(values, 5);
