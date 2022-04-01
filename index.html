@@ -117,11 +117,13 @@
       zoom: 10,
     });
 
+
     var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
       subdomains: 'abcd',
       maxZoom: 19
     }).addTo(map);
+
 
     const parcelsLayer = $.getJSON("data/la_parcels_top.geojson", function (data) {
       // the data loaded from the file is accessible here within this function scope!
@@ -146,11 +148,11 @@
       drawMap(topParcels);
     });
 
+
     function drawMap(topParcels) {
-
       const breaks = getClassBreaks(topParcels)
-
     }
+
 
     function getClassBreaks(topParcels) {
       const values = [];
@@ -166,14 +168,27 @@
 
       console.log(intValues);
 
-      // var intValues = [];
 
-      // var length = values.length;
+      // determine similar clusters
+      var clusters = ss.ckmeans(values, 5);
 
-      // for (var i = 0, i < length; i++) {
-      //   intValues.push(parseInt(values[i]));
-      // }
+      // create an array of the lowest value within each cluster
+      var breaks = clusters.map(function (cluster) {
+        return [cluster[0], cluster.pop()];
+      });
+
+      console.log(breaks); // verify your break values
     }
+
+    // // determine similar clusters
+    // var clusters = ss.ckmeans(values, 5);
+
+    // // create an array of the lowest value within each cluster
+    // var breaks = clusters.map(function (cluster) {
+    //   return [cluster[0], cluster.pop()];
+    // });
+
+    // console.log(breaks); // verify your break values
   </script>
 
 </body>
