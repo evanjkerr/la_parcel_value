@@ -202,15 +202,15 @@
     function getColor(d, breaks) {
 
       if (d <= breaks[0][1]) {
-        return '#f1eef6';
+        return '#feedde';
       } else if (d <= breaks[1][1]) {
-        return '#bdc9e1';
+        return '#feedde';
       } else if (d <= breaks[2][1]) {
-        return '#74a9cf';
+        return '#feedde';
       } else if (d <= breaks[3][1]) {
-        return '#2b8cbe'
+        return '#e6550d'
       } else if (d <= breaks[4][1]) {
-        return '#045a8d'
+        return '#e6550d'
       }
     } // end getColor
 
@@ -231,14 +231,14 @@
 
       // create the Leaflet control and position
       var legend = L.control({
-        position: 'topleft'
+        position: 'topright'
       });
 
       legend.onAdd = function () {
 
         var div = L.DomUtil.create('div', 'legend');
 
-        div.innerHTML = `<h3>Average per unit in </h3>`;
+        div.innerHTML = `<h3>Parcel Land Value</h3>`;
 
         for (var i = 0; i < breaks.length; i++) {
 
