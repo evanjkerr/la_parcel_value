@@ -223,30 +223,37 @@
     // });
 
     // console.log(breaks); // verify your break values
-    var legend = L.control({
-      position: 'topleft'
-    });
 
-    // legend.onAdd = function () {
+    function drawLegend(breaks) {
 
-    //   var div = L.DomUtil.create('div', 'legend');
+      // // function code will go in here
+      // console.log(breaks);
 
-    //   div.innerHTML = `<h3>Highest parcel land value in West L.A.</h3>`;
+      // create the Leaflet control and position
+      var legend = L.control({
+        position: 'topleft'
+      });
 
-    //   for (var i = 0; i < breaks.length; i++) {
+      legend.onAdd = function () {
 
-    //     var color = getColor(breaks[i][0], breaks);
+        var div = L.DomUtil.create('div', 'legend');
 
-    //     div.innerHTML +=
-    //       `<span style="background:${color}"></span>
-    // <label>${(breaks[i][0]).toLocaleString()}&mdash;
-    // ${(breaks[i][1]).toLocaleString()}</label>`;
-    //   }
+        div.innerHTML = `<h3>Average per unit in </h3>`;
 
-    //   return div;
-    // }; // end onAdd method
-    // // add the legend to the map
-    legend.addTo(map);
+        for (var i = 0; i < breaks.length; i++) {
+
+          var color = getColor(breaks[i][0], breaks);
+
+          div.innerHTML +=
+            `<span style="background:${color}"></span>
+<label>${(breaks[i][0]).toLocaleString()}&mdash;
+${(breaks[i][1]).toLocaleString()}</label>`;
+        }
+
+        return div;
+      }; // end onAdd method
+      // add the legend to the map
+      legend.addTo(map);
     };
   </script>
 
