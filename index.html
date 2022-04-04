@@ -158,12 +158,19 @@
 
       topParcels.eachLayer(function (data) {
 
+        let values = [];
         var landValue = data.feature.properties.LandValue;
+        values.push(landValue)
+
+        // console.log(values);
+        
+        let intValues = values.map(Number)
+        console.log(intValues);
 
         // console.log(landValue); // confirm landValue returns a value
 
         topParcels.setStyle({
-          fillColor: getColor(landValue, breaks)
+          fillColor: getColor(intValues, breaks)
         });
       });
       // function to drawLegend at the end of drawMap function
