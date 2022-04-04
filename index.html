@@ -219,6 +219,31 @@
     // });
 
     // console.log(breaks); // verify your break values
+    var legend = L.control({
+      position: 'topleft'
+    });
+
+    // legend.onAdd = function () {
+
+    //   var div = L.DomUtil.create('div', 'legend');
+
+    //   div.innerHTML = `<h3>Highest parcel land value in West L.A.</h3>`;
+
+    //   for (var i = 0; i < breaks.length; i++) {
+
+    //     var color = getColor(breaks[i][0], breaks);
+
+    //     div.innerHTML +=
+    //       `<span style="background:${color}"></span>
+    // <label>${(breaks[i][0]).toLocaleString()}&mdash;
+    // ${(breaks[i][1]).toLocaleString()}</label>`;
+    //   }
+
+    //   return div;
+    // }; // end onAdd method
+    // // add the legend to the map
+    legend.addTo(map);
+    };
   </script>
 
 </body>
