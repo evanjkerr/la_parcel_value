@@ -1,0 +1,8 @@
+{
+    "title": "Highest Land Values - West L.A.",
+    "info": "Includes the highest Land Value per parcel provided by Los Angeles city goverment. (https://data.lacounty.gov/Parcel-/Assessor-Parcel-Data-2020/42ne-gwcj?msclkid=53bed5c5b50711ecb2a68024ef4c2577)",
+    "coordinates": [33.9991, -118.4117],
+    "author": "Evan Kerr",
+    "link": "https://evanjkerr.github.io/la_parcel_value/"
+
+}
