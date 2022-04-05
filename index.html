@@ -136,10 +136,12 @@
 
       const topParcels = L.geoJson(data, {
         pointToLayer: function (data, latlng) {
-          return L.circleMarker(latlng, {
-              radius: 5,
-              color: "blue",
-            }
+          return L.circle(latlng, {
+              radius: 1000,
+              fillOpacity: 1,
+              fillColor: "yellow",
+              color: "yellow",
+            },
             //   filter: function (feature) {
             //     if (data.features["feature"].properties.PropertyLocation = "")
             //       return :feature;
@@ -163,8 +165,8 @@
         values.push(landValue)
 
         // console.log(values);
-        
-        let intValues = values.map(Number)
+
+        var intValues = values.map(Number)
         console.log(intValues);
 
         // console.log(landValue); // confirm landValue returns a value
